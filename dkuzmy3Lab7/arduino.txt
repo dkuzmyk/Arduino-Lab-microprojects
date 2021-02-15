@@ -1,0 +1,36 @@
+OLD ARDUINO LAB
+
+int BUTTON = 2;
+int LED = 3;
+bool LedON = false;
+
+SoftwareSerial comms (0, 1);
+
+void setup(){
+  Serial.begin(9600);
+  comms.begin(9600);
+  pinMode(BUTTON,INPUT);
+  pinMode(LED, OUTPUT);
+}
+
+void loop(){
+  if(digitalRead(BUTTON) == HIGH){
+    Serial.println("Button is pressed.");
+    if(!LedON){
+        Serial.println("Led is off, turning on.");
+        digitalWrite(LED, HIGH);
+        c
+        LedON = true;
+        while(digitalRead(BUTTON) == HIGH){}
+      }
+    else if (LedON){
+        Serial.println("Led is on, turning off.");
+        digitalWrite(LED, LOW);
+        LedON = false;
+        while(digitalRead(BUTTON) == HIGH){}
+      }
+  }
+  else if(digitalRead(BUTTON == LOW)){}
+  
+  //delay(500);
+}
